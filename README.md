@@ -34,8 +34,9 @@ cd /volume1/homes/admin/scripts
 
 **curl with SMTP support** — DSM's bundled `curl` is built without SMTP. Grab a static build from [stunnel/static-curl](https://github.com/stunnel/static-curl/releases) (use the **musl** variant):
 ```bash
-curl -LO https://github.com/stunnel/static-curl/releases/download/<version>/curl-linux-<arch>-musl-<version>.tar.xz
-tar -xf curl-linux-<arch>-musl-<version>.tar.xz
+TAG="$(curl -s https://api.github.com/repos/stunnel/static-curl/releases/latest | grep -m1 '"tag_name"' | sed 's/.*"tag_name"[^"]*"//; s/".*//')"
+curl -LO "https://github.com/stunnel/static-curl/releases/download/$TAG/curl-linux-x86_64-musl-$TAG.tar.xz"
+tar -xf "curl-linux-x86_64-musl-$TAG.tar.xz"
 mv curl curl-smtp
 chmod +x curl-smtp
 ./curl-smtp --version | grep -i smtp   # must list "smtp smtps"
