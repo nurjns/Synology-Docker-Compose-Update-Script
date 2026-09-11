@@ -95,6 +95,7 @@ Edit the variables at the top of `update.sh`:
 PROJECTS=(
 	project1
 	project2
+	project3
 )
 
 COMPOSE_BASE="/volume1/docker"          # where each project's compose.yaml lives
