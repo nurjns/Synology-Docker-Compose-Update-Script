@@ -40,6 +40,7 @@ tar -xf "curl-linux-x86_64-musl-$TAG.tar.xz"
 mv curl curl-smtp
 chmod +x curl-smtp
 ./curl-smtp --version | grep -i smtp   # must list "smtp smtps"
+rm curl-linux-x86_64-musl-$TAG.tar.xz
 ```
 
 Then place `update.sh` in the same directory and make it executable:
