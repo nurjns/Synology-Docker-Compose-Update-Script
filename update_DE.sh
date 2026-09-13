@@ -219,6 +219,7 @@ for project in "${PROJECTS[@]}"; do
 		else
 			log "Stoppe Projekt $project (ID $pid) ..."
 			project_api_stop "$pid" >> "$LOGFILE" 2>&1
+			sleep 1
 		fi
 
 		# Fallback, falls die API-Antwort ok meldet, aber tatsaechlich noch was laeuft
